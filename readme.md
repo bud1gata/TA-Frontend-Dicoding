@@ -18,15 +18,7 @@ Proyek Tugas Akhir Dicoding
 
 ## Project Structure
 
-- `app.py`: Main Streamlit application file
-- `moa/`: Package containing the MOA implementation
-  - `__init__.py`: Package initializer
-  - `moa.py`: Core MOA agent implementation
-  - `prompts.py`: System prompts for the agents
-- `main.py`: CLI version of the MOA chat interface
-- `requirements.txt`: List of Python dependencies
-- `static/`: Directory for static assets (images, etc.)
-
+- `x.js`: nantinya akan menjadi file utama.
 
 ## Contact
 
