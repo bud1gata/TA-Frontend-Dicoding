@@ -18,7 +18,17 @@ Proyek Tugas Akhir Dicoding
 
 ## Project Structure
 
-- `x.js`: nantinya akan menjadi file utama.
+- `index.html`: File HTML.
+- `webpack.config.js`: File konfigurasi webpack.
+- `package.json `: metadata dan dependencies.    
+- `src/`: metadata dan dependencies.
+    - `api/`: metadata dan dependencies.
+        - `notesApi.js`: fungsi koneksi API.
+    - `components/`: metadata dan dependencies.
+        - `loadingIndicator.js`: fungsi loading komponen.
+    - `styles/`: metadata dan dependencies.
+        - `styles.css`: file CSS.
+    - `index.js`: entry poin utama.        
 
 ## Contact
 
