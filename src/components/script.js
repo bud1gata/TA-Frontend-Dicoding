@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //penempatan note-list
-class ShowList extends HTMLElement {
+export class ShowList extends HTMLElement {
     constructor() {
         super();
 

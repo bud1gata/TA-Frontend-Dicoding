@@ -1,4 +1,4 @@
-class NoteItem extends HTMLElement {
+export class NoteItem extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });

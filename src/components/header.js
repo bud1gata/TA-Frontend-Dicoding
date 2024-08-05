@@ -1,4 +1,4 @@
-class TitleHeader extends HTMLElement {
+export class TitleHeader extends HTMLElement {
     constructor() {
         super();
 

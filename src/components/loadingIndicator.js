@@ -1,4 +1,4 @@
-class LoadingIndicator extends HTMLElement {
+export class LoadingIndicator extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <style>

@@ -1,4 +1,4 @@
-class InputForm extends HTMLElement {
+export class InputForm extends HTMLElement {
     constructor() {
         super();
         
