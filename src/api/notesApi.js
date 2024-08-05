@@ -1,3 +1,5 @@
+import { hideLoadingIndicator } from '../components/loadingIndicator';
+
 const BASE_URL = 'https://notes-api.dicoding.dev/v2';
 
 export async function fetchNotes() {

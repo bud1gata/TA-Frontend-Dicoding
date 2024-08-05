@@ -115,3 +115,144 @@ body {
     100% { transform: rotate(360deg); }
   }
   
+  body {
+    padding: 1em;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    background-color: #e3e3e3;
+}
+
+.container {
+    padding: 1em;
+    display: grid;
+    grid-template-areas: "header header"
+        "main show-list"
+        "footer footer";
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 0.5fr 2fr 0.2fr;
+}
+
+header {
+    grid-area: header;
+    background-color: #E88D67;
+    color: #005C78;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+}
+
+main {
+    grid-area: main;
+    color: #F3F7EC;
+    background-color: #006989;    
+    box-shadow: inset -2px 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+aside {
+    grid-area: aside;
+    background-color: #F3F7EC;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #005C78;
+    color: #F3F7EC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 8px 8px;
+}
+
+#add-note {
+    padding: 1em;
+    overflow: auto;
+    color: #e3e3e3;
+}
+
+#note-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    pad: 1px;
+}
+
+/* Form styling */
+#note-form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+input, textarea {
+    border-radius: 8px 8px 8px 8px;
+    /* Rounded corners */
+    padding: 10px;
+    /* Padding inside the input */
+    font-size: 16px;
+    /* Font size */
+    width: 100%;
+    /* Full width */
+    box-sizing: border-box;
+    /* Includes padding and border in the element's total width and height */
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    padding: 0.7em;
+    background-color: #E88D67;
+    color: #005C78;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #cf5c2a;
+    color: #F3F7EC;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.2em;
+        padding: 0.5em;
+    }
+
+    main {
+        padding: 0.5em;
+    }
+
+    input,
+    textarea,
+    button {
+        font-size: 0.9em;
+    }
+}
+

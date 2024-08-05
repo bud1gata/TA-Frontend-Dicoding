@@ -1,6 +1,6 @@
 class LoadingIndicator extends HTMLElement {
-    connectedCallback() {
-      this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
         <style>
           .loading {
             display: flex;
@@ -31,19 +31,14 @@ class LoadingIndicator extends HTMLElement {
           <div class="spinner"></div>
         </div>
       `;
-    }
   }
-  
-  customElements.define('loading-indicator', LoadingIndicator);
-  
-  function showLoadingIndicator() {
-    document.body.appendChild(document.createElement('loading-indicator'));
+}
+
+customElements.define('loading-indicator', LoadingIndicator);
+
+export function hideLoadingIndicator() {
+  const indicator = document.querySelector('loading-indicator');
+  if (indicator) {
+    indicator.remove();
   }
-  
-  function hideLoadingIndicator() {
-    const indicator = document.querySelector('loading-indicator');
-    if (indicator) {
-      indicator.remove();
-    }
-  }
-  
+}
