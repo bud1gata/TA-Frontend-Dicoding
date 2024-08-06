@@ -81,10 +81,13 @@ header, footer {
     font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
+    grid-area: button;
+    justify-self: end; /* Align the button to the right */
+    height: 40px;
   }
-  
+
   #notes-container button:hover {
-    background-color: #c82333;
+    background-color: #a71d2b;
   }
   
 
@@ -249,14 +252,6 @@ textarea {
     overflow: hidden; /* Hide overflow content */
     white-space: pre-wrap; /* Preserve whitespace and wrap */
 }
-
-.btn-hapus {
-    grid-area: button;
-    justify-self: end; /* Align the button to the right */
-    height: 40px;
-}
-
-
 
 /* Responsive design */
 @media (max-width: 768px) {
