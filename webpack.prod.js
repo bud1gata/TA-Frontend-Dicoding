@@ -12,16 +12,16 @@ module.exports = merge (config, {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            exclude: /(node_modules|bower_components)/,
-            options: {
-              presets: ['@babel/preset-env']
-            }
+        test: /\.(?:js|mjs|cjs)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env', { targets: "defaults" }]
+            ]
           }
-        ]
+        }
       }
     ]
   }
