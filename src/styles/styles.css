@@ -1,12 +1,16 @@
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-  }
-  
-  header, footer {
+}
+body {
+  padding: 1em;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  background-color: #e3e3e3;
+}
+
+header, footer {
     background-color: #333;
     color: white;
     text-align: center;
@@ -51,12 +55,12 @@ body {
     background-color: #0056b3;
   }
   
-  /* Notes container styles */
   #notes-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-  }
+    gap: 10px; /* Ensure space between items */
+    padding: 10px; /* Optional: add padding to the container */
+}
   
   #notes-container > div {
     padding: 10px;
@@ -87,12 +91,6 @@ body {
     background-color: #c82333;
   }
   
-  body {
-    padding: 1em;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    background-color: #e3e3e3;
-}
 
 .container {
     padding: 1em;
@@ -229,6 +227,56 @@ button:hover {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.btn-hapus{
+  height: 40px;
+}
+
+.note-item {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px; /* Ensure margin is applied */
+  display: grid; /* Use CSS Grid */
+  grid-template-areas:
+      "id"
+      "title"
+      "body"
+      "button";
+  grid-template-rows: auto auto 1fr auto; /* Define the row structure */
+  gap: 10px; /* Add space between items */
+  height: 100%; /* Ensure the note-item takes full height */
+}
+
+.id {
+    grid-area: id;
+    font-size: 0.5em;
+    color: #333;
+}
+
+.title {
+    grid-area: title;
+    font-size: 1.2em;
+    font-weight: bold;
+    word-wrap: break-word; /* Ensure long words wrap */
+}
+
+.body {
+    grid-area: body;
+    font-size: 1em;
+    color: #333;
+    word-wrap: break-word; /* Ensure long words wrap */
+    overflow-wrap: break-word; /* Additional word wrap to ensure no overflow */
+    overflow: hidden; /* Hide overflow content */
+    white-space: pre-wrap; /* Preserve whitespace and wrap */
+}
+
+.btn-hapus {
+    grid-area: button;
+    justify-self: end; /* Align the button to the right */
+    height: 40px;
 }
 
 

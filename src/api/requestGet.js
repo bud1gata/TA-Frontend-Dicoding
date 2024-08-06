@@ -29,44 +29,16 @@ const renderAllNotes = (notes) => {
 
   notes.forEach((note) => {
     listBookElement.innerHTML += `
-                <style>
-                .note-item {
-                    background: #f9f9f9;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    padding: 15px;
-                    margin: 10px;
-                    display: grid;
-                    gap: 10px;
-                }
-                .id {
-                    font-size: 0.5em;
-                    color: #333;
-                }                
-                .title {
-                    font-size: 1.2em;
-                    font-weight: bold;
-                }
-                .body {
-                    font-size: 1em;
-                    color: #333;
-                }
-                .createdAt {
-                    font-size: 0.75em;
-                    color: #666;
-                }
-            </style>
+        <div id="notes-container">
             <div class="note-item">
                 <div class="id">${note.id}</div>
                 <div class="title">${note.title}</div>
                 <div class="body">${note.body}</div>
-                <div class="createdAt">${note.formattedDate}</div>
-                <button
-                type="button"
-                class="btn-hapus"
-                data-id="${note.id}"
-              >
+                <button type="button" class="btn-hapus" data-id="${note.id}">Hapus Catatan</button>
             </div>
+            <!-- Repeat note-item for each note -->
+        </div>
+
     `;
   });
 
