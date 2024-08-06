@@ -7,7 +7,7 @@ GET https://notes-api.dicoding.dev/v2/notes
 
 //hapus
 ###
-DELETE http://localhost:35555/inventaris/667efa9b33a7cf23d1d7c6c6
+DELETE https://notes-api.dicoding.dev/v2/notes
 
 //tambah
 ###
@@ -31,32 +31,10 @@ Content-Type: application/json
 
 //Perbaharui data
 ###
-PATCH http://localhost:35555/inventaris/667db72aaa01aeb365070966
+PATCH https://notes-api.dicoding.dev/v2/notes
 Content-Type: application/json
 
 {
-    "nama": "bangku",
-    "merk": "kosong", 
-    "kondisi": "baik", 
-    "tempat": "Lab 1", 
-    "tanggalBeli": "123123", 
-    "serialnumber": "12224",
-    "diperoleh": "mencuri", 
-    "status": "hilang"
-}
-
-//tambah 2
-###
-POST http://localhost:35555/inventaris/
-Content-Type: application/json
-
-{
-    "nama": "meja",
-    "merk": "kayu", 
-    "kondisi": "rusak", 
-    "tempat": "Lab 1", 
-    "tanggalBeli": "123123323", 
-    "serialnumber": "12311111",
-    "diperoleh": "RKAS", 
-    "status": "ada"
+      "title": "What is Lorem Ipsum?",
+      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 }
