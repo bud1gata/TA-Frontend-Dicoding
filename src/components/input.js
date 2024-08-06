@@ -6,7 +6,6 @@ export class InputForm extends HTMLElement {
     constructor() {
         super();
         
-        // Define the HTML template
         this.innerHTML = `
             <form id="note-form">
                 <label for="title">Judul:</label>
@@ -30,38 +29,25 @@ export class InputForm extends HTMLElement {
             </form>
         `;
 
-        // Bind events
         this.querySelector('#note-form').addEventListener('submit', this.handleSubmit.bind(this));
     }
 
     async handleSubmit(event) {
         event.preventDefault();
 
-        // Retrieve form values
         const title = this.querySelector('#title').value;
         const body = this.querySelector('#body').value;
         const errorMessage = this.querySelector('#error-message');
         const loadingIndicator = this.querySelector('loading-indicator');
 
-        // Basic validation
         if (!title || !body) {
             errorMessage.style.display = 'block';
             return;
         }
 
-        // Clear the error message
         errorMessage.style.display = 'none';
-
-        // Check if loadingIndicator is defined
-        if (!loadingIndicator) {
-            console.error('LoadingIndicator element not found');
-            return;
-        }
-
-        // Show the loading indicator
         loadingIndicator.show();
 
-        // Create a new note object
         const note = {
             title,
             body,
@@ -69,16 +55,13 @@ export class InputForm extends HTMLElement {
 
         try {
             await insertNote(note);
-            // Clear the form
             this.querySelector('#note-form').reset();
         } catch (error) {
             showResponseMessage(error.message || error);
         } finally {
-            // Hide the loading indicator
             loadingIndicator.hide();
         }
     }
 }
 
-// Define the new element
 customElements.define('input-form', InputForm);
