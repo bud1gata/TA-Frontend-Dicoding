@@ -24,7 +24,7 @@ export class InputForm extends HTMLElement {
                 name="body"                
                 placeholder="Contoh: Lokasi di Rumah Makan Siap Mundur" 
                 required></textarea>
-                <button type="submit">Tambah Catatan</button>
+                <button type="submit" id="btn-add">Tambah Catatan</button>
                 <p id="error-message" style="color: red; display: none;">Please fill out both fields.</p>
                 <loading-indicator></loading-indicator> <!-- Include the loading indicator -->
             </form>
