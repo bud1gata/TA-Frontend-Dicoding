@@ -9,4 +9,20 @@ module.exports = merge (config, {
     filename: 'bundle-[contenthash].js',
     clean: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            exclude: /(node_modules|bower_components)/,
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        ]
+      }
+    ]
+  }
 });

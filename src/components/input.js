@@ -1,3 +1,7 @@
+import { showResponseMessage } from "../api/notesApi";
+import { insertNote } from "../api/requestAdd";
+import { LoadingIndicator } from "./loadingIndicator";
+
 export class InputForm extends HTMLElement {
     constructor() {
         super();
@@ -6,11 +10,23 @@ export class InputForm extends HTMLElement {
         this.innerHTML = `
             <form id="note-form">
                 <label for="title">Judul:</label>
-                <input type="text" id="title" name="title" required>
+                <input 
+                type="text" 
+                id="title" 
+                name="title" 
+                placeholder="Contoh: Makan siang dengan klien"
+                required/>
+
                 <label for="body">Isi:</label>
-                <textarea id="body" name="body" required></textarea>
+
+                <textarea 
+                id="body" 
+                name="body"                
+                placeholder="Contoh: Lokasi di Rumah Makan Siap Mundur" 
+                required></textarea>
                 <button type="submit">Tambah Catatan</button>
-                <p id="error-message"></p>
+                <p id="error-message" style="color: red; display: none;">Please fill out both fields.</p>
+                <loading-indicator></loading-indicator> <!-- Include the loading indicator -->
             </form>
         `;
 
@@ -18,17 +34,17 @@ export class InputForm extends HTMLElement {
         this.querySelector('#note-form').addEventListener('submit', this.handleSubmit.bind(this));
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
 
         // Retrieve form values
         const title = this.querySelector('#title').value;
         const body = this.querySelector('#body').value;
         const errorMessage = this.querySelector('#error-message');
+        const loadingIndicator = this.querySelector('loading-indicator');
 
         // Basic validation
         if (!title || !body) {
-            errorMessage.textContent = 'Both fields are required!';
             errorMessage.style.display = 'block';
             return;
         }
@@ -36,19 +52,31 @@ export class InputForm extends HTMLElement {
         // Clear the error message
         errorMessage.style.display = 'none';
 
-        // Create a new note-item element
-        const noteItem = document.createElement('note-item');
-        noteItem.setAttribute('id', new Date().toISOString());
-        noteItem.setAttribute('title', title);
-        noteItem.setAttribute('body', body);
-        noteItem.setAttribute('createdat', new Date().toLocaleDateString());
-        noteItem.setAttribute('archived', 'No');
+        // Check if loadingIndicator is defined
+        if (!loadingIndicator) {
+            console.error('LoadingIndicator element not found');
+            return;
+        }
 
-        // Append the new note-item to the notes container
-        document.getElementById('note-list').appendChild(noteItem);
+        // Show the loading indicator
+        loadingIndicator.show();
 
-        // Clear the form
-        this.querySelector('#note-form').reset();
+        // Create a new note object
+        const note = {
+            title,
+            body,
+        };
+
+        try {
+            await insertNote(note);
+            // Clear the form
+            this.querySelector('#note-form').reset();
+        } catch (error) {
+            showResponseMessage(error.message || error);
+        } finally {
+            // Hide the loading indicator
+            loadingIndicator.hide();
+        }
     }
 }
 
